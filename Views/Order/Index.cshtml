@@ -1,0 +1,51 @@
+﻿@using Accounting.Models
+@model IEnumerable<Accounting.Models.Order>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Заказы</h2>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        С.н.
+                    </th>
+                    <th>
+                        Заказчик
+                    </th>
+                    <th>
+                        Товар
+                    </th>
+                    <th>
+                        Стоимость, BYN
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orders in Model)
+                {
+                <tr>
+                    <td width="5%">@orders.orderId</td>
+                    <td width="40%">@orders.orderTitle</td>
+                    <td width="20%">@orders.Goods.goodsName</td>
+                    <td width="40%">@orders.Goods.goodsCost</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Заказы еще не созданы</p>
+    }
+
+</div>
+

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Accounting.Models.Category>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Категории</h2>
+        </div>
+        <div class="col-6 text-right" >
+            <a asp-controller="Category" asp-action="Create" class="btn-primary">Добавить категорию</a>
+        </div>
+    </div>
+    <br />
+
+    @if(Model.Count() > 0)
+            {
+  
+                        @foreach(var category in Model)
+                        {
+                            <div class="col-md">
+                                <a asp-controller="Category" asp-action="curCategory" asp-route-Id="@category.categoryId" class="form-group">@category.categoryName</a> 
+                             </div>
+                        }
+            }
+            else
+            {
+                <p>Категории еще не созданы</p>
+            }
+
+</div>

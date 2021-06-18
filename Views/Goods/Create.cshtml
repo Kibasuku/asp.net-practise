@@ -1,0 +1,57 @@
+﻿@model Accounting.Models.Goods
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3>Добавление оборудования</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="goodsName" class="control-label"></label>
+                <input asp-for="goodsName" class="form-control" />
+                <span asp-validation-for="goodsName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="goodsCost" class="control-label"></label>
+                <input asp-for="goodsCost" class="form-control" />
+                <span asp-validation-for="goodsCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="storageId" class="control-label"></label>
+                <select asp-for="storageId" class="custom-select">
+                    <option disabled>Выберите склад</option>
+                    <option value="1">Склад 1Г</option>
+                    <option value="2">Склад 2Г</option>
+                    <option value="3">Склад 3Г</option>
+                    <option value="4">Склад 4Г</option>
+                    <option value="5">Склад 1М</option>
+                    <option value="6">Склад 2М</option>
+                </select>
+                <span asp-validation-for="storageId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="categoryId" class="control-label"></label>
+                <select asp-for="categoryId" class="custom-select">
+                    <option disabled>Выберите категорию</option>
+                    <option value="1">Системы видеонаблюдения</option>
+                    <option value="2">Системы контроля и управления доступом</option>
+                    <option value="3">Охранные системы</option>
+                    <option value="4">Пожарная сигнализация</option>
+                </select>
+                <span asp-validation-for="categoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
